@@ -72,6 +72,8 @@ export default defineConfig([
   },
 ])
 
+
+```
 <p align="center">
   <a href="https://github.com/lucide-icons/lucide">
     <img src="https://lucide.dev/package-logos/lucide-react.svg" alt="Lucide icon library for React applications." width="540">
@@ -154,8 +156,6 @@ Lucide is licensed under the ISC license. See [LICENSE](https://lucide.dev/licen
 ### Other contributors 💸
 
 You can find all our past and non-recurring financial contributors at [our Open Collective page](https://opencollective.com/lucide-icons).
-
-```
 =======
 # Panithan-s-Portfolio-w-vibe-coding
 Built on 70% Vibe Code and 30% Flexibility.
