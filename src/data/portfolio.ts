@@ -1,4 +1,4 @@
-import type { Profile, Project } from '../types/index'
+import type { Profile, Project , SkillCategories } from '../types/index'
 
 export const PROFILE: Profile = {
   name: "Panithan Akepanthanpong",
@@ -12,23 +12,23 @@ export const PROFILE: Profile = {
   }
 };
 
-export const SKILL_CATEGORIES: SKill_Categories = {
+export const SKILLCATEGORIES: SkillCategories[] = [
+  {
     title: "Development Stack",
-    icon: <Code size={18} />,
+    icon: "Code",
     skills: ["JavaScript", "TypeScript", "React", "Next.js", "Node.js", "Tailwind CSS", "PostgreSQL"]
   },
   {
     title: "Automated Testing",
-    icon: <Wrench size={18} />,
+    icon: "TestTube",
     skills: ["Cypress.io", "Playwright", "Jest", "API Testing", "E2E Testing", "CI/CD Integration"]
   },
   {
     title: "Creative & Tools",
-    icon: "",
+    icon: "Palette",
     skills: ["Premiere Pro", "After Effects", "DaVinci Resolve", "Git", "Docker"]
-      }
-};
-
+  },
+];
 
 export const PROJECTS: Project[] = [
   {

@@ -18,3 +18,9 @@ export interface Project {
   tags: string[];
   link: string;
 }
+
+export interface SkillCategories {
+  title: string;
+  icon: string;
+  skills: string[];
+}

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X, Terminal, Wrench, Code, TestTube, Palette } from "lucide-react";
 
 // Import Data
-import { PROFILE, PROJECTS } from "./data/portfolio";
+import { PROFILE, PROJECTS , SKILLCATEGORIES } from "./data/portfolio";
 
 // Import Components
 import { Sidebar } from "./components/SideBar";
@@ -15,6 +15,19 @@ export default function App() {
   // ใส่ Type ให้ State
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+
+  const getIcon = (iconName: string) => {
+    switch (iconName) {
+      case "Code":
+        return <Code size={20} />;
+      case "TestTube":
+        return <TestTube size={20} />;
+      case "Palette":
+        return <Palette size={20} />;
+      default:
+        return <Wrench size={20} />;
+    }
+  };
 
   const filteredProjects = PROJECTS.filter((project) =>
     activeCategory === "All" ? true : project.category === activeCategory,
@@ -65,6 +78,36 @@ export default function App() {
             ))}
           </div>
           
+ {/* Skills Section */}
+          <section id="skills" className="mt-24 pt-10">
+            <div className="flex items-center gap-3 mb-8">
+              <Wrench className="text-green-500" size={24} />
+              <h2 className="text-2xl font-bold text-white tracking-tight">Tech Stack & Skills</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {SKILLCATEGORIES.map((category, idx) => (
+                <div key={idx} className="bg-[#111] border border-gray-800 p-6 rounded-2xl hover:border-green-500/30 transition-colors flex flex-col">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="p-2 bg-green-500/10 text-green-500 rounded-lg">
+                      {getIcon(category.icon)}
+                    </div>
+                    <h3 className="text-lg font-bold text-white">{category.title}</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill, sIdx) => (
+                      <span 
+                        key={sIdx} 
+                        className="px-3 py-1.5 bg-[#1a1a1a] border border-gray-800 text-gray-300 text-xs md:text-sm rounded-md font-mono hover:text-green-400 transition-colors"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
 
           <ContactFooter email={PROFILE.email} />
         </main>
